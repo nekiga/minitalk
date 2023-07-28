@@ -1,0 +1,5 @@
+#include signal
+
+function signal can catch signals
+signal (int signal, handler adress);
+
