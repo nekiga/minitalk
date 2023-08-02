@@ -1,6 +1,7 @@
 #include "../minitalk.h"
 
-void loveSofia1(void)
+int	main(void)
 {
-    printf("Love sofia!\n");
+
+	return (0);
 }

@@ -1,6 +1,15 @@
 #include "../minitalk.h"
 
-void loveSofia(void)
+static int signaling;
+
+
+int	main(int argc, char **argv)
 {
-    printf("Love sofia!\n");
+    int pid;
+
+	checker(argc, argv);
+    pid = ft_atoi(argv[1]);
+    
+
+	return (0);
 }

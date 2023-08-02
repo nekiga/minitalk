@@ -11,6 +11,15 @@
 #include "./includes/printf/ft_printf.h"
 
 
+typedef struct s_siginfo
+{
+    
+} t_siginfo;
+
+// Aux functions
+bool	checker(int argc, char **argv);
+void	destroyer(void);
+void	*xmalloc(size_t size);
 
 
 #endif
