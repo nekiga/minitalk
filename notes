@@ -3,3 +3,15 @@
 function signal can catch signals
 signal (int signal, handler adress);
 
+--------------#_-----------#
+
+notas minitalk
+
+lexer/parser 
+guardar os comandos sepradando los em comandos simples ( delimitados por pipes etc)
+subsittuir esses delimitadores por non printable characters para ser mais facil fazer split desde que nao estejam dentro de aspas
+
+testar o bash
+builtin para fazer por ultimo
+
+ 
