@@ -11,13 +11,12 @@
 #include "./includes/getnextline/get_next_line.h"
 #include "./includes/printf/ft_printf.h"
 
-
 // Client auxiliary functions
-bool	checker_client(int argc);
+bool	checker_client(int argc, char **argv);
 void	string_to_bin(char *str, int pid);
 // Server auxiliar functions
 // Shared auxiliary functions
-void	destroyer(void);
+void	destroyer(char *str);
 void	*xmalloc(size_t size);
 char	bin_to_char(char *c, int pid);
 int	    char_to_bin(char c, int pid);

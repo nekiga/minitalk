@@ -6,15 +6,15 @@
 int	main(int argc, char **argv)
 {
     pid_t             pid;
-    struct sigaction sa;
+    struct sigaction s_sa;
 
+	checker_client(argc, argv);
     pid = ft_atoi(argv[1]);
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = SA_RESTART | SA_SIGINFO;
-	sa.__sigaction_u.__sa_sigaction = &sig_handler_client;
-	checker_client(argc);
-    sigaction(SIGUSR1, &sa, NULL);
-    sigaction(SIGUSR2, &sa, NULL);
+    sigemptyset(&s_sa.sa_mask);
+    s_sa.sa_flags = SA_RESTART | SA_SIGINFO;
+	s_sa.__sigaction_u.__sa_sigaction = &sig_handler_client;
+    sigaction(SIGUSR1, &s_sa, NULL);
+    sigaction(SIGUSR2, &s_sa, NULL);
     string_to_bin(argv[2], pid);
     while (1)
         pause();
