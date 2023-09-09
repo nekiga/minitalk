@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minitalk.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: garibeir < garibeir@student.42lisboa.com > +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 12:48:04 by garibeir          #+#    #+#             */
+/*   Updated: 2023/09/09 12:48:05 by garibeir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../minitalk.h"
 
 
@@ -14,11 +26,11 @@ bool	checker_client(int argc, char **argv)
 	if (argc > 3)
 		destroyer("Too many arguments");
 	while (i < ft_strlen(argv[1]))
-		{
-			if (!ft_isdigit(argv[1][i]))
-				destroyer("Invalid PID");
-			i++;
-		}
+	{
+		if (!ft_isdigit(argv[1][i]))
+			destroyer("Invalid PID");
+		i++;
+	}
 	i = 0;
 	if (!argv[2][0])
 		destroyer("Empty string");
@@ -31,21 +43,6 @@ void	destroyer(char *str)
 	ft_printf("%s\n", str);
 	exit(1);
 }
-
-// depracated
-/* void	init_sigaction_struct(int option)
-{
-	struct sigaction sa;
-
-	sigemptyset(&sa.sa_mask);
-	if(option == 0)
-		sa.__sigaction_u.__sa_handler = SIG_IGN;
-	else
-	{
-		sa.sa_flags = SA_RESTART | SA_SIGINFO;
-		sa.__sigaction_u.__sa_sigaction = sig_handler;
-	}
-	sigaction(SIGINT, &sa, NULL); */
 
 //cmalloc with built in protection from null pointers
 void	*xmalloc(size_t size)
