@@ -11,6 +11,8 @@ bool	checker_client(int argc, char **argv)
 	i = 0;
 	if (argc < 3)
 		destroyer("Not enough arguments");
+	if (argc > 3)
+		destroyer("Too many arguments");
 	while (i < ft_strlen(argv[1]))
 		{
 			if (!ft_isdigit(argv[1][i]))
@@ -68,7 +70,7 @@ void	*xmalloc(size_t size)
 		bits_read++; 
 	if (signum == SIGUSR2)
 	{
-		ft_printf("%d bytes received\n", bits_read / 8); 
+		ft_printf("Message sent correctly. %d bytes received\n", bits_read / 8); 
 		exit(0);
 	}
 } 
