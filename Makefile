@@ -6,9 +6,10 @@
 #    By: garibeir < garibeir@student.42lisboa.com > +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/01 16:48:14 by garibeir          #+#    #+#              #
-#    Updated: 2023/09/10 11:40:06 by garibeir         ###   ########.fr        #
+#    Updated: 2023/09/10 14:08:40 by garibeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 #----- Program name:
 CLIENT	= Client
@@ -55,39 +56,41 @@ $(COMMON): $(OBJ_COMMON)
 	@echo "$(DEFAULT)\tDone Compiling.\n"
 
 $(CLIENT):	$(OBJ_CLIENT) 
-
-		@echo "$(DEFAULT)\tBuilding Client...\n"
-		$(CC) $(CFLAGS) $(OBJ_CLIENT) $(OBJ_COMMON) $(FT_PRINTF_NAME) $(FT_LIBFT_NAME) -O3 -o $(CLIENT)
-		mkdir objects_client && mv $(OBJ_CLIENT) objects_client
-		@clear
-		@echo "$(DEFAULT)\tDone Compiling Client.\n"
+	@echo "$(DEFAULT)\tBuilding Client...\n"
+	$(CC) $(CFLAGS) $(OBJ_CLIENT) $(OBJ_COMMON) $(FT_PRINTF_NAME) $(FT_LIBFT_NAME) -O3 -o $(CLIENT)
+	mkdir objects_client && mv $(OBJ_CLIENT) objects_client
+	@clear
+	@echo "$(DEFAULT)\tDone Compiling Client.\n"
 
 $(SERVER): $(OBJ_SERVER)
-		@echo "$(DEFAULT)\tBuilding Server...\n"
-		$(CC) $(CFLAGS) $(OBJ_SERVER) $(OBJ_COMMON) $(FT_PRINTF_NAME) $(FT_LIBFT_NAME) -O3 -o $(SERVER)
-		mkdir objects_server && mv $(OBJ_SERVER) objects_server
-		mkdir objects_common && mv $(OBJ_COMMON) objects_common
-		@clear
-		@echo "$(DEFAULT)\tDone Compiling Server.\n"
-		@echo "$(DEFAULT)\tFinished project build.\n"
+	@echo "$(DEFAULT)\tBuilding Server...\n"
+	$(CC) $(CFLAGS) $(OBJ_SERVER) $(OBJ_COMMON) $(FT_PRINTF_NAME) $(FT_LIBFT_NAME) -O3 -o $(SERVER)
+	mkdir objects_server && mv $(OBJ_SERVER) objects_server
+	mkdir objects_common && mv $(OBJ_COMMON) objects_common
+	@clear
+	@echo "$(DEFAULT)\tDone Compiling Server.\n"
+	@echo "$(DEFAULT)\tFinished project build.\n"
 clean:
-		@rm -rf objects_server
-		@rm -rf objects_client
-		@rm -rf objects_common
-		make clean -s -C $(FT_PRINTF_PATH)
-		make clean -s -C $(FT_LIBFT_PATH) 
-		@echo "$(DEFAULT)\tDone cleaning.\n"
+	@rm -rf objects_server
+	@rm -rf objects_client
+	@rm -rf objects_common
+	make clean -s -C $(FT_PRINTF_PATH)
+	make clean -s -C $(FT_LIBFT_PATH) 
+	@echo "$(DEFAULT)\tDone cleaning.\n"
 
 fclean:		clean
-			$(RM) $(CLIENT) $(SERVER) $(OBJ_CLIENT) $(OBJ_SERVER) $(OBJ_COMMON)
-			make -s fclean -C $(FT_PRINTF_PATH)
-			make -s fclean -C $(FT_LIBFT_PATH) 
-			@echo "$(DEFAULT)\tDone function cleaning.\n"
+	$(RM) $(CLIENT) $(SERVER) $(OBJ_CLIENT) $(OBJ_SERVER) $(OBJ_COMMON)
+	make -s fclean -C $(FT_PRINTF_PATH)
+	make -s fclean -C $(FT_LIBFT_PATH) 
+	@echo "$(DEFAULT)\tDone function cleaning.\n"
 
 re: fclean all
 
-test:
-		./fdf basictest.fdf
-
+bonus: fclean
+	mkdir temp && mv ./srcs/minitalk.c temp
+	mv ./bonus/minitalk.c ./srcs
+	make all
+	mv ./srcs/minitalk.c ./bonus
+	mv ./temp/minitalk.c ./srcs
+	rmdir temp
 	
-		
