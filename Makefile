@@ -6,7 +6,7 @@
 #    By: garibeir < garibeir@student.42lisboa.com > +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/01 16:48:14 by garibeir          #+#    #+#              #
-#    Updated: 2023/05/26 16:14:44 by garibeir         ###   ########.fr        #
+#    Updated: 2023/09/10 11:40:06 by garibeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,7 @@ SRC_CLIENT	=  ./srcs/client.c \
 
 SRC_SERVER	=  ./srcs/server.c \
 
-SRC_COMMON	= ./includes/getnextline/get_next_line.c 	./includes/getnextline/get_next_line_utils.c \
-	./srcs/minitalk.c \
+SRC_COMMON	= ./srcs/minitalk.c \
 
 OBJ_CLIENT	= $(SRC_CLIENT:.c=.o)
 OBJ_SERVER	= $(SRC_SERVER:.c=.o)

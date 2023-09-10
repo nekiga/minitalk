@@ -6,7 +6,7 @@
 /*   By: garibeir < garibeir@student.42lisboa.com > +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 12:48:08 by garibeir          #+#    #+#             */
-/*   Updated: 2023/09/09 13:53:47 by garibeir         ###   ########.fr       */
+/*   Updated: 2023/09/10 11:17:37 by garibeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		destroyer("Too many arguments");
 	sigemptyset(&s_sa.sa_mask);
 	s_sa.sa_flags = SA_RESTART | SA_SIGINFO;
-	s_sa.sigaction_u = &sig_handler_server;
+	s_sa.sa_sigaction = &sig_handler_server;
 	sigaction(SIGUSR1, &s_sa, NULL);
 	sigaction(SIGUSR2, &s_sa, NULL);
 	ft_printf("Server pid: %i\n", pid);
